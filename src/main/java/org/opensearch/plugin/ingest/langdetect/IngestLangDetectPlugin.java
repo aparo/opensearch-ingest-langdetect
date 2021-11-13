@@ -15,14 +15,14 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.langdetect;
+package org.opensearch.plugin.ingest.langdetect;
 
 import com.cybozu.labs.langdetect.LangDetectException;
 import com.cybozu.labs.langdetect.SecureDetectorFactory;
-import org.elasticsearch.ElasticsearchException;
-import org.elasticsearch.ingest.Processor;
-import org.elasticsearch.plugins.IngestPlugin;
-import org.elasticsearch.plugins.Plugin;
+import org.opensearch.OpenSearchException;
+import org.opensearch.ingest.Processor;
+import org.opensearch.plugins.IngestPlugin;
+import org.opensearch.plugins.Plugin;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -36,7 +36,7 @@ public class IngestLangDetectPlugin extends Plugin implements IngestPlugin {
         try {
             SecureDetectorFactory.loadProfileFromClassPath(parameters.env);
         } catch (LangDetectException | URISyntaxException | IOException e) {
-            throw new ElasticsearchException(e);
+            throw new OpenSearchException(e);
         }
 
         Map<String, Processor.Factory> factoryMap = new HashMap<>(1);

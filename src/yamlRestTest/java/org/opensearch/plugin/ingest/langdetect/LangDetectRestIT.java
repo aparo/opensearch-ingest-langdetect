@@ -15,14 +15,14 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.langdetect;
+package org.opensearch.plugin.ingest.langdetect;
 
 import com.carrotsearch.randomizedtesting.annotations.Name;
 import com.carrotsearch.randomizedtesting.annotations.ParametersFactory;
-import org.elasticsearch.test.rest.yaml.ClientYamlTestCandidate;
-import org.elasticsearch.test.rest.yaml.ESClientYamlSuiteTestCase;
+import org.opensearch.test.rest.yaml.ClientYamlTestCandidate;
+import org.opensearch.test.rest.yaml.OpenSearchClientYamlSuiteTestCase;
 
-public class LangDetectRestIT extends ESClientYamlSuiteTestCase {
+public class LangDetectRestIT extends OpenSearchClientYamlSuiteTestCase {
 
     public LangDetectRestIT(@Name("yaml") ClientYamlTestCandidate testCandidate) {
         super(testCandidate);
@@ -30,6 +30,6 @@ public class LangDetectRestIT extends ESClientYamlSuiteTestCase {
 
     @ParametersFactory
     public static Iterable<Object[]> parameters() throws Exception {
-        return ESClientYamlSuiteTestCase.createParameters();
+        return OpenSearchClientYamlSuiteTestCase.createParameters();
     }
 }

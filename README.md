@@ -1,105 +1,19 @@
-# Elasticsearch Langdetect Ingest Processor
+# OpenSearch Langdetect Ingest Processor
+
+This is a port of [spinscale's Elasticserch Langdetect ingest plugin](https://github.com/spinscale/elasticsearch-ingest-langdetect).
+The code was migrate using my migration script [ElasticSearch to OpenSearch Migration Scripts](https://github.com/aparo/elasticsearch-opensearch-migration-scripts)
 
 Uses the [langdetect](https://github.com/YouCruit/language-detection/) plugin to try to find out the language used in a field.
 
-Note that Elasticsearch has native support for langdetection nowadays using the
+Note that OpenSearch has native support for langdetection nowadays using the
 `inference` ingest processor. See more in
 [the documentation](https://www.elastic.co/guide/en/machine-learning/current/ml-lang-ident.html)
 
 ## Installation
 
-| ES    | Command |
+| OS    | Command |
 | ----- | ------- |
-| 8.0.0-alpha2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/8.0.0-alpha2.1/ingest-langdetect-8.0.0-alpha2.1.zip` |
-| 7.15.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.15.2.1/ingest-langdetect-7.15.2.1.zip` |
-| 7.15.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.15.1.1/ingest-langdetect-7.15.1.1.zip` |
-| 7.15.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.15.0.1/ingest-langdetect-7.15.0.1.zip` |
-| 7.14.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.14.2.1/ingest-langdetect-7.14.2.1.zip` |
-| 7.14.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.14.1.1/ingest-langdetect-7.14.1.1.zip` |
-| 7.14.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.14.0.1/ingest-langdetect-7.14.0.1.zip` |
-| 7.13.4 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.13.4.1/ingest-langdetect-7.13.4.1.zip` |
-| 7.13.3 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.13.3.1/ingest-langdetect-7.13.3.1.zip` |
-| 7.13.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.13.2.1/ingest-langdetect-7.13.2.1.zip` |
-| 7.13.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.13.1.1/ingest-langdetect-7.13.1.1.zip` |
-| 7.13.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.13.0.1/ingest-langdetect-7.13.0.1.zip` |
-| 7.12.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.12.1.1/ingest-langdetect-7.12.1.1.zip` |
-| 7.12.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.12.0.1/ingest-langdetect-7.12.0.1.zip` |
-| 7.11.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.11.2.1/ingest-langdetect-7.11.2.1.zip` |
-| 7.11.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.11.1.1/ingest-langdetect-7.11.1.1.zip` |
-| 7.11.0 | Not available Elasticsearch issues |
-| 7.10.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.10.2.1/ingest-langdetect-7.10.2.1.zip` |
-| 7.10.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.10.1.1/ingest-langdetect-7.10.1.1.zip` |
-| 7.10.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.10.0.1/ingest-langdetect-7.10.0.1.zip` |
-| 7.9.3 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.9.3.1/ingest-langdetect-7.9.3.1.zip` |
-| 7.9.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.9.2.1/ingest-langdetect-7.9.2.1.zip` |
-| 7.9.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.9.1.1/ingest-langdetect-7.9.1.1.zip` |
-| 7.9.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.9.0.1/ingest-langdetect-7.9.0.1.zip` |
-| 7.8.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.8.1.1/ingest-langdetect-7.8.1.1.zip` |
-| 7.8.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.8.0.1/ingest-langdetect-7.8.0.1.zip` |
-| 7.7.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.7.1.1/ingest-langdetect-7.7.1.1.zip` |
-| 7.7.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.7.0.1/ingest-langdetect-7.7.0.1.zip` |
-| 7.6.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.6.2.1/ingest-langdetect-7.6.2.1.zip` |
-| 7.6.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.6.1.1/ingest-langdetect-7.6.1.1.zip` |
-| 7.6.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.6.0.1/ingest-langdetect-7.6.0.1.zip` |
-| 7.5.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.5.2.1/ingest-langdetect-7.5.2.1.zip` |
-| 7.5.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.5.1.1/ingest-langdetect-7.5.1.1.zip` |
-| 7.5.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.5.0.1/ingest-langdetect-7.5.0.1.zip` |
-| 7.4.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.4.2.1/ingest-langdetect-7.4.2.1.zip` |
-| 7.4.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.4.1.1/ingest-langdetect-7.4.1.1.zip` |
-| 7.4.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.4.0.1/ingest-langdetect-7.4.0.1.zip` |
-| 7.3.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.3.2.1/ingest-langdetect-7.3.2.1.zip` |
-| 7.3.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.3.1.1/ingest-langdetect-7.3.1.1.zip` |
-| 7.3.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.3.0.1/ingest-langdetect-7.3.0.1.zip` |
-| 7.2.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.2.1.1/ingest-langdetect-7.2.1.1.zip` |
-| 7.2.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.2.0.1/ingest-langdetect-7.2.0.1.zip` |
-| 7.1.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.1.1.1/ingest-langdetect-7.1.1.1.zip` |
-| 7.1.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.1.0.1/ingest-langdetect-7.1.0.1.zip` |
-| 7.0.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.0.1.1/ingest-langdetect-7.0.1.1.zip` |
-| 7.0.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/7.0.0.1/ingest-langdetect-7.0.0.1.zip` |
-| 6.8.19 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.19.1/ingest-langdetect-6.8.19.1.zip` |
-| 6.8.18 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.18.1/ingest-langdetect-6.8.18.1.zip` |
-| 6.8.17 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.17.1/ingest-langdetect-6.8.17.1.zip` |
-| 6.8.16 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.16.1/ingest-langdetect-6.8.16.1.zip` |
-| 6.8.15 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.15.1/ingest-langdetect-6.8.15.1.zip` |
-| 6.8.14 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.14.1/ingest-langdetect-6.8.14.1.zip` |
-| 6.8.13 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.13.1/ingest-langdetect-6.8.13.1.zip` |
-| 6.8.12 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.12.1/ingest-langdetect-6.8.12.1.zip` |
-| 6.8.11 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.11.1/ingest-langdetect-6.8.11.1.zip` |
-| 6.8.10 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.10.1/ingest-langdetect-6.8.10.1.zip` |
-| 6.8.9 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.9.1/ingest-langdetect-6.8.9.1.zip` |
-| 6.8.8 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.8.1/ingest-langdetect-6.8.8.1.zip` |
-| 6.8.7 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.7.1/ingest-langdetect-6.8.7.1.zip` |
-| 6.8.6 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.6.1/ingest-langdetect-6.8.6.1.zip` |
-| 6.8.5 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.5.1/ingest-langdetect-6.8.5.1.zip` |
-| 6.8.4 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.4.1/ingest-langdetect-6.8.4.1.zip` |
-| 6.8.3 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.3.1/ingest-langdetect-6.8.3.1.zip` |
-| 6.8.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.2.1/ingest-langdetect-6.8.2.1.zip` |
-| 6.8.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.1.1/ingest-langdetect-6.8.1.1.zip` |
-| 6.8.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.8.0.1/ingest-langdetect-6.8.0.1.zip` |
-| 6.7.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.7.2.1/ingest-langdetect-6.7.2.1.zip` |
-| 6.7.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.7.1.1/ingest-langdetect-6.7.1.1.zip` |
-| 6.7.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.7.0.1/ingest-langdetect-6.7.0.1.zip` |
-| 6.6.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.6.2.1/ingest-langdetect-6.6.2.1.zip` |
-| 6.6.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.6.1.1/ingest-langdetect-6.6.1.1.zip` |
-| 6.6.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.6.0.1/ingest-langdetect-6.6.0.1.zip` |
-| 6.5.4 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.5.4.1/ingest-langdetect-6.5.4.1.zip` |
-| 6.5.3 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.5.3.1/ingest-langdetect-6.5.3.1.zip` |
-| 6.5.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.5.2.1/ingest-langdetect-6.5.2.1.zip` |
-| 6.5.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.5.1.1/ingest-langdetect-6.5.1.1.zip` |
-| 6.5.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.5.0.1/ingest-langdetect-6.5.0.1.zip` |
-| 6.4.3 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.4.3.1/ingest-langdetect-6.4.3.1.zip` |
-| 6.4.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.4.2.1/ingest-langdetect-6.4.2.1.zip` |
-| 6.4.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.4.1.1/ingest-langdetect-6.4.1.1.zip` |
-| 6.4.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.4.0.1/ingest-langdetect-6.4.0.1.zip` |
-| 6.3.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.3.2.1/ingest-langdetect-6.3.2.1.zip` |
-| 6.3.1 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.3.1.1/ingest-langdetect-6.3.1.1.zip` |
-| 6.3.0 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.3.0.1/ingest-langdetect-6.3.0.1.zip` |
-| 6.2.4 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.2.4.1/ingest-langdetect-6.2.4.1.zip` |
-| 6.2.3 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.2.3.1/ingest-langdetect-6.2.3.1.zip` |
-| 6.2.2 | `bin/elasticsearch-plugin install https://github.com/spinscale/elasticsearch-ingest-langdetect/releases/download/6.2.2.1/ingest-langdetect-6.2.2.1.zip` |
-| 5.2.0 | `bin/elasticsearch-plugin install https://oss.sonatype.org/content/repositories/releases/de/spinscale/elasticsearch/plugin/ingest-langdetect/5.2.0.1/ingest-langdetect-5.2.0.1.zip` |
-| 5.1.2 | `bin/elasticsearch-plugin install https://oss.sonatype.org/content/repositories/releases/de/spinscale/elasticsearch/plugin/ingest-langdetect/5.1.2.1/ingest-langdetect-5.1.2.1.zip` |
-| 5.1.1 | `bin/elasticsearch-plugin install https://oss.sonatype.org/content/repositories/releases/de/spinscale/elasticsearch/plugin/ingest-langdetect/5.1.1.1/ingest-langdetect-5.1.1.1.zip` |
+| 1.1.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/1.1.0/ingest-langdetect-1.1.0.zip` |
 
 ## Usage
 

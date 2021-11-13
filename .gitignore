@@ -5,6 +5,8 @@ out/
 *.swp
 *-execution-hints.log
 *-execution-times.log
+.vscode
+bin/
 
 // ignore the downloaded model files in git
 src/test/resources/models/

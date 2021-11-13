@@ -15,16 +15,16 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.langdetect;
+package org.opensearch.plugin.ingest.langdetect;
 
 import com.cybozu.labs.langdetect.LangDetectException;
 import com.cybozu.labs.langdetect.SecureDetectorFactory;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.env.Environment;
-import org.elasticsearch.ingest.IngestDocument;
-import org.elasticsearch.ingest.Processor;
-import org.elasticsearch.ingest.RandomDocumentPicks;
-import org.elasticsearch.test.ESTestCase;
+import org.opensearch.common.settings.Settings;
+import org.opensearch.env.Environment;
+import org.opensearch.ingest.IngestDocument;
+import org.opensearch.ingest.Processor;
+import org.opensearch.ingest.RandomDocumentPicks;
+import org.opensearch.test.OpenSearchTestCase;
 import org.junit.BeforeClass;
 
 import java.util.Collections;
@@ -35,7 +35,7 @@ import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
-public class LangDetectProcessorTests extends ESTestCase {
+public class LangDetectProcessorTests extends OpenSearchTestCase {
 
     @BeforeClass
     public static void loadProfiles() throws Exception {

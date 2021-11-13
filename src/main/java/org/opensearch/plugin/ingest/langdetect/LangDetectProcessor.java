@@ -15,23 +15,23 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.langdetect;
+package org.opensearch.plugin.ingest.langdetect;
 
 import com.cybozu.labs.langdetect.Detector;
 import com.cybozu.labs.langdetect.DetectorFactory;
-import org.elasticsearch.common.Strings;
-import org.elasticsearch.common.unit.ByteSizeUnit;
-import org.elasticsearch.common.unit.ByteSizeValue;
-import org.elasticsearch.ingest.AbstractProcessor;
-import org.elasticsearch.ingest.IngestDocument;
-import org.elasticsearch.ingest.Processor;
+import org.opensearch.common.Strings;
+import org.opensearch.common.unit.ByteSizeUnit;
+import org.opensearch.common.unit.ByteSizeValue;
+import org.opensearch.ingest.AbstractProcessor;
+import org.opensearch.ingest.IngestDocument;
+import org.opensearch.ingest.Processor;
 
 import java.io.IOException;
 import java.util.Map;
 
-import static org.elasticsearch.ingest.ConfigurationUtils.readBooleanProperty;
-import static org.elasticsearch.ingest.ConfigurationUtils.readOptionalStringProperty;
-import static org.elasticsearch.ingest.ConfigurationUtils.readStringProperty;
+import static org.opensearch.ingest.ConfigurationUtils.readBooleanProperty;
+import static org.opensearch.ingest.ConfigurationUtils.readOptionalStringProperty;
+import static org.opensearch.ingest.ConfigurationUtils.readStringProperty;
 
 public class LangDetectProcessor extends AbstractProcessor {
 
