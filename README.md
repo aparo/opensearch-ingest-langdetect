@@ -14,6 +14,7 @@ Note that OpenSearch has native support for langdetection nowadays using the
 | OS    | Command |
 | ----- | ------- |
 | 1.1.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/1.1.0/ingest-langdetect-1.1.0.zip` |
+| 1.2.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/1.2.0/ingest-langdetect-1.2.0.zip` |
 
 ## Usage
 
