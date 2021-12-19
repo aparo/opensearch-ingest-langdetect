@@ -1,6 +1,6 @@
 # OpenSearch Langdetect Ingest Processor
 
-This is a port of [spinscale's Elasticserch Langdetect ingest plugin](https://github.com/spinscale/elasticsearch-ingest-langdetect).
+This is a port of [spinscale's ElasticSearch Langdetect ingest plugin](https://github.com/spinscale/elasticsearch-ingest-langdetect).
 The code was migrate using my migration script [ElasticSearch to OpenSearch Migration Scripts](https://github.com/aparo/elasticsearch-opensearch-migration-scripts)
 
 Uses the [langdetect](https://github.com/YouCruit/language-detection/) plugin to try to find out the language used in a field.
@@ -14,6 +14,8 @@ Note that OpenSearch has native support for langdetection nowadays using the
 | OS    | Command |
 | ----- | ------- |
 | 1.1.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/1.1.0/ingest-langdetect-1.1.0.zip` |
+| 1.2.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/1.2.0/ingest-langdetect-1.2.0.zip` |
+| 1.2.2 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/1.2.2/ingest-langdetect-1.2.2.zip` |
 
 ## Usage
 
