@@ -56,7 +56,7 @@ dependencies {
   implementation 'com.youcruit.com.cybozu.labs:langdetect:1.1.2-20151117'
   implementation 'net.arnx:jsonic:1.3.10'
   // the yaml tests require a log4j2 dependency, otherwise a dependency is thrown on startup
-  runtimeOnly 'org.apache.logging.log4j:log4j-core:2.16.0'
+  runtimeOnly 'org.apache.logging.log4j:log4j-core:2.17.0'
 }
 
 // ignore javadoc warnings for now
