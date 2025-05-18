@@ -66,7 +66,7 @@ public class LangDetectProcessor extends AbstractProcessor {
             }
             throw e;
         }
-        if (content.isEmpty()) {
+        if (Strings.isEmpty(content)) {
             return ingestDocument;
         }
 
