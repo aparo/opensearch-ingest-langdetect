@@ -6,7 +6,7 @@ apply plugin: 'opensearch.opensearchplugin'
 apply plugin: 'opensearch.yaml-rest-test'
 apply plugin: 'opensearch.pluginzip'
 
-def pluginName = 'opensearch-analysis-pinyin'
+def pluginName = 'opensearch-ingest-langdetect'
 def pluginDescription = 'Ingest processor doing language detection for fields'
 def pluginSmallDescription = 'Ingest Language Detect plugin'
 def projectPath = 'org.opensearch'
