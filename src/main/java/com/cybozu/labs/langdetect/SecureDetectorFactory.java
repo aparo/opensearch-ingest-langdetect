@@ -55,7 +55,7 @@ public class SecureDetectorFactory {
 
     public static void loadProfileFromClassPath(Environment environment)
             throws LangDetectException, URISyntaxException, IOException {
-        Path tmp = Files.createTempFile(environment.tmpFile(), "langdetect", ".jar");
+        Path tmp = Files.createTempFile(environment.tmpDir(), "langdetect", ".jar");
         URL resource = SecureDetectorFactory.class.getClassLoader().getResource("profiles/");
         // ugly hack to get back the jar file only and then copy it
         String jarName = resource.toURI().getSchemeSpecificPart().replaceFirst("!/profiles/", "").replaceFirst("^file:",
