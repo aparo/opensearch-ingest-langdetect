@@ -127,6 +127,7 @@ GET my-index/doc/2
 | 2.11.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.11.0/opensearch-analysis-pinyin.zip` |
 | 2.11.1 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.11.1/opensearch-analysis-pinyin.zip` |
 | 2.11.1 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/2.11.1/opensearch-ingest-langdetect.zip` |
+| 2.12.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/2.12.0/opensearch-ingest-langdetect.zip` |
 
 ## Setup
 
