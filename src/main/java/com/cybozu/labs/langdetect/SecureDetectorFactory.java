@@ -19,8 +19,8 @@ package com.cybozu.labs.langdetect;
 
 import com.cybozu.labs.langdetect.util.LangProfile;
 import org.opensearch.common.io.FileSystemUtils;
-import org.opensearch.common.xcontent.DeprecationHandler;
-import org.opensearch.common.xcontent.NamedXContentRegistry;
+import org.opensearch.core.xcontent.DeprecationHandler;
+import org.opensearch.core.xcontent.NamedXContentRegistry;
 import org.opensearch.common.xcontent.XContentType;
 import org.opensearch.env.Environment;
 
@@ -42,30 +42,35 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Allows loading of the detector factory languages when the security manager is enabled
- * Copies the jar file over to a tmp file, so no additional permissions are required
- * Does not use jsonic either as it would use reflection and again require additional permissions
+ * Allows loading of the detector factory languages when the security manager is
+ * enabled
+ * Copies the jar file over to a tmp file, so no additional permissions are
+ * required
+ * Does not use jsonic either as it would use reflection and again require
+ * additional permissions
  *
  * Needs to be in this package in order to call DetectorFactory.addProfile()
  */
 public class SecureDetectorFactory {
 
-    public static void loadProfileFromClassPath(Environment environment) throws LangDetectException, URISyntaxException, IOException {
+    public static void loadProfileFromClassPath(Environment environment)
+            throws LangDetectException, URISyntaxException, IOException {
         Path tmp = Files.createTempFile(environment.tmpFile(), "langdetect", ".jar");
         URL resource = SecureDetectorFactory.class.getClassLoader().getResource("profiles/");
         // ugly hack to get back the jar file only and then copy it
-        String jarName = resource.toURI().getSchemeSpecificPart().replaceFirst("!/profiles/", "").replaceFirst("^file:", "");
+        String jarName = resource.toURI().getSchemeSpecificPart().replaceFirst("!/profiles/", "").replaceFirst("^file:",
+                "");
         try (InputStream in = FileSystemUtils.openFileURLStream(new URL("file://" + jarName))) {
             Files.copy(in, tmp, StandardCopyOption.REPLACE_EXISTING);
         }
-        FileSystem fileSystem =
-                FileSystems.newFileSystem(new URI("jar:" + tmp.toAbsolutePath().toUri().toString()), Collections.emptyMap());
+        FileSystem fileSystem = FileSystems.newFileSystem(new URI("jar:" + tmp.toAbsolutePath().toUri().toString()),
+                Collections.emptyMap());
 
         DirectoryStream<Path> ds = Files.newDirectoryStream(fileSystem.getPath("profiles/"));
         Iterator<Path> iter = ds.iterator();
         Map<String, LangProfile> profiles = new HashMap<>();
         while (iter.hasNext()) {
-            String path = iter.next().toString().replaceFirst("^/","");
+            String path = iter.next().toString().replaceFirst("^/", "");
             InputStream stream = SecureDetectorFactory.class.getClassLoader().getResourceAsStream(path);
             assert stream != null;
 
@@ -87,7 +92,7 @@ public class SecureDetectorFactory {
         LangProfile langProfile = new LangProfile();
         List<Integer> nWords = (List<Integer>) data.get("n_words");
         langProfile.n_words = new int[nWords.size()];
-        for(int i = 0;i < langProfile.n_words.length;i++)
+        for (int i = 0; i < langProfile.n_words.length; i++)
             langProfile.n_words[i] = nWords.get(i);
 
         langProfile.name = (String) data.get("name");

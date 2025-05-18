@@ -120,6 +120,9 @@ GET my-index/doc/2
 | 2.3.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.3.0/opensearch-analysis-pinyin.zip` |
 | 2.4.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.4.0/opensearch-analysis-pinyin.zip` |
 | 2.6.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.6.0/opensearch-analysis-pinyin.zip` |
+| 2.7.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.7.0/opensearch-analysis-pinyin.zip` |
+| 2.8.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.8.0/opensearch-analysis-pinyin.zip` |
+| 2.9.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.9.0/opensearch-analysis-pinyin.zip` |
 
 ## Setup
 
