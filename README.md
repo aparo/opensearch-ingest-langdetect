@@ -135,6 +135,7 @@ GET my-index/doc/2
 | 2.17.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/2.17.0/opensearch-ingest-langdetect.zip` |
 | 2.18.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/2.18.0/opensearch-ingest-langdetect.zip` |
 | 2.19.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/2.19.0/opensearch-ingest-langdetect.zip` |
+| 2.19.1 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-ingest-langdetect/releases/download/2.19.1/opensearch-ingest-langdetect.zip` |
 
 ## Setup
 
