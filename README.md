@@ -115,6 +115,11 @@ GET my-index/doc/2
 | target_field   | Field name to write the language to |
 | max_length     | Max length of of characters to read, defaults to 10kb, requires a byte size value, like 1mb |
 | ignore_missing | Ignore missing source field. Not throwing exception in that case. Expects for boolean value, defaults to false. |
+| 2.1.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.1.0/opensearch-analysis-pinyin.zip` |
+| 2.2.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.2.0/opensearch-analysis-pinyin.zip` |
+| 2.3.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.3.0/opensearch-analysis-pinyin.zip` |
+| 2.4.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.4.0/opensearch-analysis-pinyin.zip` |
+| 2.6.0 | `bin/opensearch-plugin install https://github.com/aparo/opensearch-analysis-pinyin/releases/download/2.6.0/opensearch-analysis-pinyin.zip` |
 
 ## Setup
 
