@@ -43,7 +43,7 @@ public class LangDetectProcessor extends AbstractProcessor {
     private final boolean ignoreMissing;
 
     public LangDetectProcessor(String tag, String description, String field, String targetField,
-                               ByteSizeValue maxLength, boolean ignoreMissing)
+            ByteSizeValue maxLength, boolean ignoreMissing)
             throws IOException {
         super(tag, description);
         this.field = field;
@@ -66,7 +66,7 @@ public class LangDetectProcessor extends AbstractProcessor {
             }
             throw e;
         }
-        if (Strings.isEmpty(content)) {
+        if (content.isEmpty()) {
             return ingestDocument;
         }
 
@@ -89,7 +89,7 @@ public class LangDetectProcessor extends AbstractProcessor {
 
         @Override
         public Processor create(Map<String, Processor.Factory> processorFactories, String tag, String description,
-                                Map<String, Object> config) throws Exception {
+                Map<String, Object> config) throws Exception {
             String field = readStringProperty(TYPE, tag, config, "field");
             String targetField = readStringProperty(TYPE, tag, config, "target_field");
             String maxLengthStr = readOptionalStringProperty(TYPE, tag, config, "max_length");
